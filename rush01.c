@@ -3,7 +3,7 @@
 
 int	ft_strlen(char *str);
 int	ft_sqrt(int nb);
-void	put_2d_array(char **arr, int size);
+void	put_2d_array(int **arr, int size);
 
 int	validate_input(char *input)
 {
@@ -30,33 +30,31 @@ int	validate_input(char *input)
  	return (0);
 }
 
-char	**parse_input(char *input, int size)
+int	**parse_input(char *input, int size)
 {
-	char	**parsed_input;
-	char	*temp;
+	int	**parsed_input;
+	int	*temp;
 	int	i; // iterator over 4 direcitons arrays.
 	int	j; // iterator over singular direction array.
-	int	k; // iterator over input. Skips spaces. Does't reset.
+	int	k; // iterator over input. Skips spaces. Doesn't reset.
 	
-	parsed_input = malloc(4 * sizeof(char *));
+	parsed_input = malloc(4 * sizeof(int *));
 	if (!parsed_input)
 		return NULL;
 	i = 0;
 	k = 0;
 	while (i < 4)
 	{
-		temp = malloc((size + 1) * sizeof(char));
+		temp = malloc(size * sizeof(int));
 		if (!temp)
 			return NULL;
 		j = 0;
 		while (j < size)
 		{
-			
-			temp[j] = input[k];
+			temp[j] = (int)(input[k] - '0');
 			j++;
 			k += 2;
 		}
-		temp[j] = '\0';
 		parsed_input[i] = temp;
 		i++;
 	}

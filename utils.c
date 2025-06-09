@@ -25,10 +25,11 @@ int	ft_sqrt(int nb)
 	return (0);
 }
 
-void	put_2d_array(char **arr, int size)
+void	put_2d_array(int **arr, int size)
 {
 	int	i;
 	int	j;
+	char	temp;
 	
 	i = 0;
 	while (i < 4)
@@ -36,7 +37,8 @@ void	put_2d_array(char **arr, int size)
 		j = 0;
 		while (j < size)
 		{
-			write(1, &arr[i][j], 1);
+			temp = '0' + arr[i][j];
+			write(1, &temp, 1);
 			if (j > 0 && j % (size - 1) == 0)
 				write(1, "\n", 1);
 			else
@@ -47,7 +49,7 @@ void	put_2d_array(char **arr, int size)
 	}
 }
 
-void	free_2d_array(char **arr)
+void	free_2d_array(int **arr)
 {
 	int	i;
 	
@@ -55,6 +57,7 @@ void	free_2d_array(char **arr)
 	while (i < 4)
 	{
 		free(arr[i]);
+		i++;
 	}
 	free(arr);
 }
