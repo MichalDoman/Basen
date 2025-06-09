@@ -30,7 +30,36 @@ int	validate_input(char *input)
  	return (0);
 }
 
-char	**parse_input(char *input)
+char	**parse_input(char *input, int size)
 {
+	char	**parsed_input;
+	char	*temp;
+	int	i; // iterator over 4 direcitons arrays.
+	int	j; // iterator over singular direction array.
+	int	k; // iterator over input. Skips spaces. Does't reset.
 	
+	parsed_input = malloc(4 * sizeof(char *));
+	if (!parsed_input)
+		return NULL;
+	i = 0;
+	k = 0;
+	while (i < 4)
+	{
+		temp = malloc((size + 1) * sizeof(char));
+		if (!temp)
+			return NULL;
+		j = 0;
+		while (j < size)
+		{
+			
+			temp[j] = input[k];
+			j++;
+			k += 2;
+		}
+		temp[j] = '\0';
+		parsed_input[i] = temp;
+		i++;
+	}
+	put_2d_array(parsed_input, size);
+	return (parsed_input);
 }

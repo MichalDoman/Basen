@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 int	validate_input(char *input);
-char	**parse_input(char *input);
+char	**parse_input(char *input, int size);
+void	free_2d_array(char **arr);
 
 int	main(int argc, char *argv[])
 {
@@ -14,8 +15,8 @@ int	main(int argc, char *argv[])
 	{
 		grid_size = validate_input(argv[1]);
 		printf("grid_size = %d \n", grid_size);
-		parsed_input = parse_input(char *input);
-		
+		parsed_input = parse_input(argv[1], grid_size);
+		free_2d_array(parsed_input);
 	}
 	else
 	{

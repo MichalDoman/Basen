@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -36,7 +37,7 @@ void	put_2d_array(char **arr, int size)
 		while (j < size)
 		{
 			write(1, &arr[i][j], 1);
-			if (j % size == 0)
+			if (j > 0 && j % (size - 1) == 0)
 				write(1, "\n", 1);
 			else
 				write(1, " ", 1);
@@ -44,4 +45,16 @@ void	put_2d_array(char **arr, int size)
 		}
 		i++;
 	}
+}
+
+void	free_2d_array(char **arr)
+{
+	int	i;
+	
+	i = 0;
+	while (i < 4)
+	{
+		free(arr[i]);
+	}
+	free(arr);
 }
