@@ -5,7 +5,7 @@ int	validate_input(char *input);
 int	**parse_input(char *input, int size);
 int	**create_grid(int size);
 void	put_2d_array(int **arr, int size);
-void	free_2d_array(int **arr);
+void	free_2d_array(int **arr, int size);
 
 int	main(int argc, char *argv[])
 {
@@ -24,8 +24,8 @@ int	main(int argc, char *argv[])
 		put_2d_array(grid, grid_size);
 			
 		// free malloc'ed arrays:
-		free_2d_array(parsed_input);
-		free_2d_array(grid);
+		free_2d_array(parsed_input, 4);
+		free_2d_array(grid, grid_size);
 	}
 	else
 	{

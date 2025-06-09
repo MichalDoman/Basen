@@ -11,20 +11,6 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_sqrt(int nb)
-{
-	int	i;
-	
-	i = 0;
-	while (i <= (nb / 2))
-	{
-		if (i * i == nb)
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
 int	*rev_arr(int *arr, int size)
 {
 	int	temp;
@@ -48,7 +34,7 @@ void	put_2d_array(int **arr, int size)
 	char	temp;
 	
 	i = 0;
-	while (i < 4)
+	while (i < size)
 	{
 		j = 0;
 		while (j < size)
@@ -65,12 +51,12 @@ void	put_2d_array(int **arr, int size)
 	}
 }
 
-void	free_2d_array(int **arr)
+void	free_2d_array(int **arr, int size)
 {
 	int	i;
 	
 	i = 0;
-	while (i < 4)
+	while (i < size)
 	{
 		free(arr[i]);
 		i++;
