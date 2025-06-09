@@ -30,7 +30,23 @@ int	check_col(int **grid, int size, int value, int row_id, int col_id)
 	return (1);
 }
 
-int	count_visible()
+int	count_visible(int *arr, int size)
 {
+	int	count;
+	int	temp;
+	int	i;
 	
+	i = 1;
+	count = 1;
+	temp = arr[0];
+	while (i < size)
+	{
+		if (arr[i] > temp)
+		{
+			temp = arr[i];
+			count++;
+		}
+		i++;	
+	}
+	return (count);
 }
