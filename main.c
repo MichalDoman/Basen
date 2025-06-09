@@ -15,12 +15,15 @@ int	main(int argc, char *argv[])
 	
 	if (argc == 2 && validate_input(argv[1]))
 	{
+		//get neccessary data:
 		grid_size = validate_input(argv[1]);
 		printf("grid_size = %d \n", grid_size);
 		parsed_input = parse_input(argv[1], grid_size);
 		grid = create_grid(grid_size);
 		
 		put_2d_array(grid, grid_size);
+		
+		// free malloc'ed arrays:
 		free_2d_array(parsed_input);
 		free_2d_array(grid);
 	}
