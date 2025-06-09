@@ -68,10 +68,14 @@ int	**create_grid(int size)
 	int	j;
 	
 	grid = malloc(4 * sizeof(int *));
+	if (!grid)
+		return NULL;
 	i = 0;
 	while (i < 4)
 	{
 		row = malloc(size * sizeof(int));
+		if (!row)
+			return NULL;
 		j = 0;
 		while (j < size)
 		{
