@@ -25,6 +25,22 @@ int	ft_sqrt(int nb)
 	return (0);
 }
 
+int	*rev_arr(int *arr, int size)
+{
+	int	temp;
+	int	i;
+	
+	i = 0;
+	while (i < size / 2)
+	{
+		temp = arr[i];
+		arr[i] = arr[size - 1 - i];
+		arr[size - 1 - i] = temp;
+		i++;
+	}
+	return (arr);
+}
+
 void	put_2d_array(int **arr, int size)
 {
 	int	i;
