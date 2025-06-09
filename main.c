@@ -6,7 +6,6 @@ int	**parse_input(char *input, int size);
 int	**create_grid(int size);
 void	put_2d_array(int **arr, int size);
 void	free_2d_array(int **arr);
-int	*rev_arr(int *arr, int size);
 
 int	main(int argc, char *argv[])
 {
