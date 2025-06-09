@@ -3,7 +3,6 @@
 
 int	ft_strlen(char *str);
 int	ft_sqrt(int nb);
-void	put_2d_array(int **arr, int size);
 
 int	validate_input(char *input)
 {
@@ -51,13 +50,36 @@ int	**parse_input(char *input, int size)
 		j = 0;
 		while (j < size)
 		{
-			temp[j] = (int)(input[k] - '0');
+			temp[j] = input[k] - '0';
 			j++;
 			k += 2;
 		}
 		parsed_input[i] = temp;
 		i++;
 	}
-	put_2d_array(parsed_input, size);
 	return (parsed_input);
+}
+
+int	**create_grid(int size)
+{
+	int	**grid;
+	int	*row;
+	int	i;
+	int	j;
+	
+	grid = malloc(4 * sizeof(int *));
+	i = 0;
+	while (i < 4)
+	{
+		row = malloc(size * sizeof(int));
+		j = 0;
+		while (j < size)
+		{
+			row[j] = 0;
+			j++;
+		}
+		grid[i] = row;
+		i++;
+	}
+	return (grid);
 }
