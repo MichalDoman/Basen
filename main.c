@@ -1,10 +1,16 @@
 #include <unistd.h>
+#include <stdio.h>
+
+int	validate_input(char *input);
 
 int	main(int argc, char *argv[])
 {
-	if (argc == 2)
+	int	grid_size;	
+	printf("argv[1] = \"%s\" \n", argv[1]);
+	if (argc == 2 && validate_input(argv[1]))
 	{
-		write(1, "Main function", 13);
+		grid_size = validate_input(argv[1]);
+		printf("grid_size = %d \n", grid_size);
 	}
 	else
 	{
