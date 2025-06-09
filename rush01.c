@@ -1,7 +1,9 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int	ft_strlen(char *str);
 int	ft_sqrt(int nb);
+void	put_2d_array(char **arr, int size);
 
 int	validate_input(char *input)
 {
@@ -15,7 +17,6 @@ int	validate_input(char *input)
  	j = 1;
  	while (i < len)
  	{
- 		
 		if (!(input[i] >= '0' && input[i] <= '9'))
 			return (0);
 		if (j < len && input[j] != ' ')
@@ -27,4 +28,9 @@ int	validate_input(char *input)
  	if (grid_size)
  		return (grid_size);
  	return (0);
+}
+
+char	**parse_input(char *input)
+{
+	
 }
