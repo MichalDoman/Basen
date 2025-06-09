@@ -32,7 +32,7 @@ int	validate_input(char *input)
 
 int	**parse_input(char *input, int size)
 {
-	int	**parsed_input;
+	int	**parsed_input; // 4 arrays: top, bottom, left, right.
 	int	*temp;
 	int	i; // iterator over 4 direcitons arrays.
 	int	j; // iterator over singular direction array.
