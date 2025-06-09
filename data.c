@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 int	ft_strlen(char *str);
-int	ft_sqrt(int nb);
 
 int	validate_input(char *input)
 {
@@ -23,9 +22,11 @@ int	validate_input(char *input)
 		i += 2;
 		j += 2;
  	}
- 	grid_size = ft_sqrt((len + 1) / 2);
- 	if (grid_size)
+ 	if ((len + 1) % 8 == 0)
+ 	{
+ 		grid_size = (len + 1) / 8;
  		return (grid_size);
+ 	}
  	return (0);
 }
 
