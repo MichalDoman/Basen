@@ -11,7 +11,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	*rev_arr(int *arr, int size)
+void	rev_arr(int *arr, int size)
 {
 	int	temp;
 	int	i;
@@ -24,7 +24,6 @@ int	*rev_arr(int *arr, int size)
 		arr[size - 1 - i] = temp;
 		i++;
 	}
-	return (arr);
 }
 
 void	put_2d_array(int **arr, int size)
