@@ -9,7 +9,7 @@ void	presolve(int **input, int **grid, int size)
 {
 	int	i; //Iterator over input (4 directions)
 	int	j; //Iterator over instructions from each direction
-	int	k; 
+	int	k; //Iterator for filling ascending values for max visibles
 	
 	i = 0;
 	while (i < 4)
@@ -32,6 +32,17 @@ void	presolve(int **input, int **grid, int size)
 						grid[j][k] = size - k;
 					k++;
 				}
+			}
+			if (input[i][j] == 1)
+			{
+				if (i == 0)
+					grid[0][j] = size;
+				else if (i == 1)
+					grid[size - 1][j] = size;
+				else if (i == 2)
+					grid[j][0] = size;
+				else
+					grid[j][size - 1] = size;
 			}
 			j++;
 		}
