@@ -1,0 +1,53 @@
+int	check_row(int *row, int size, int value, int col_id)
+{
+	int	i;
+		
+	i = 0;
+	while (i < size)
+	{
+		if (i == col_id)
+			continue ;
+		if (row[i] == value)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_col(int **grid, int size, int value, int row_id, int col_id)
+{
+	int	i;
+	
+	i = 0;
+	while (i < size)
+	{
+		if (i == row_id)
+			continue ;
+		if (grid[i][col_id] == value)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	count_visible(int *arr, int size)
+{
+	int	count;
+	int	temp;
+	int	i;
+	
+	i = 1;
+	count = 1;
+	temp = arr[0];
+	while (i < size)
+	{
+		if (arr[i] > temp)
+		{
+			temp = arr[i];
+			count++;
+		}
+		i++;	
+	}
+	return (count);
+}
+

@@ -4,6 +4,7 @@
 int	validate_input(char *input);
 int	**parse_input(char *input, int size);
 int	**create_grid(int size);
+void	solve(int **input, int **grid, int size);
 void	put_2d_array(int **arr, int size);
 void	free_2d_array(int **arr, int size);
 
@@ -20,6 +21,7 @@ int	main(int argc, char *argv[])
 		printf("grid_size = %d \n", grid_size);
 		parsed_input = parse_input(argv[1], grid_size);
 		grid = create_grid(grid_size);
+		solve(parsed_input, grid, grid_size);
 		
 		put_2d_array(grid, grid_size);
 			
