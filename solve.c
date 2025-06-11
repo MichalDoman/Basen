@@ -60,26 +60,21 @@ void	solve(int **input, int **grid, int size, int start)
 	{
 		row = start / size;
 		col = start % size;
-		printf("row = %d, col = %d \n", row, col);
 		if (grid[row][col] == 0)
 		{
-			grid[row][col] = value;
-			if (check_row(grid[row], size, value, col) 
-				&& check_col(grid, size, value, row, col))
+			while (!check_row(grid[row], size, value, col) 
+				|| !check_col(grid, size, value, row, col))
 			{
-				printf("I am here");
+				printf("row = %d, col = %d, value = %d \n", row, col, value);
+				value++;
+			}
+			grid[row][col] = value;
+			if (start % size == 0)
+			{
 				return ;
 			}
+			solve(input, grid, size, start + 1);
 		}
 		start++;
 	}
-	/*
-	for each cell with 0, insert a number.
-	for each number insert all other cells with 0. 
-	when row ends check visibility (left, right).
-	check when row ends. check if row is last.
-	if wrong reset, else continue.
-	for last row check visibility for each column (top, bottom).
-	if wrong reset. 
-	 */
 }
