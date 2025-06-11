@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-void	rev_arr(int *arr, int size);
 int	check_row(int *row, int size, int value, int col_id);
 int	check_col(int **grid, int size, int value, int row_id, int col_id);
 int	count_visible(int *arr, int size);
@@ -50,7 +49,34 @@ void	presolve(int **input, int **grid, int size)
 	}
 }
 
-void	solve(int **input, int **grid, int size)
+void	solve(int **input, int **grid, int size, int start)
 {
-	presolve(input, grid, size);
+	int	row;
+	int	col;
+	int	value;
+	
+	value = 0;
+	while (start < size * size)
+	{
+		row = start / size;
+		col = start % size;
+		if (grid[row][col] == 0)
+		{
+			
+		}
+		if (is_solved)
+		{
+			return ;
+		}
+		start++;
+	}
+	/*
+	for each cell with 0, insert a number.
+	for each number insert all other cells with 0. 
+	when row ends check visibility (left, right).
+	check when row ends. check if row is last.
+	if wrong reset, else continue.
+	for last row check visibility for each column (top, bottom).
+	if wrong reset. 
+	 */
 }
