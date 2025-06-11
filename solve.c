@@ -3,6 +3,7 @@
 int	check_row(int *row, int size, int value, int col_id);
 int	check_col(int **grid, int size, int value, int row_id, int col_id);
 int	is_row_correct(int **input, int **grid, int size, int row_id);
+int	is_col_correct(int **input, int **grid, int size, int col_id);
 
 void	presolve(int **input, int **grid, int size)
 {
@@ -76,6 +77,15 @@ int	solve(int **input, int **grid, int size, int start)
 						if (!is_row_correct(input, grid, size, row))
 						{
 							printf("Row is not correct \n");
+							grid[row][col] = 0;
+							return (0);
+						}
+					}
+					if (row == (size - 1))
+					{
+						if (!is_col_correct(input, grid, size, col))
+						{
+							printf("Col is not correct \n");
 							grid[row][col] = 0;
 							return (0);
 						}

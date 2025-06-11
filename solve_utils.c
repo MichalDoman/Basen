@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 
 void	rev_arr(int *arr, int size);
 
@@ -76,4 +76,29 @@ int	is_row_correct(int **input, int **grid, int size, int row_id)
 	rev_arr(grid[row_id], size);
 	return (1);
 	
+}
+
+int	is_col_correct(int **input, int **grid, int size, int col_id)
+{
+	int	top;
+	int	bottom;
+	int	*col_arr;
+	int	i;
+	
+	top = input[0][col_id];
+	bottom = input[1][col_id];
+	col_arr = malloc(size * sizeof(int));
+	i = 0;
+	while (i < size)
+	{
+		col_arr[i] = grid[i][col_id];
+		i++;
+	}
+	if (count_visible(col_arr, size) != top)
+		return (0);
+	rev_arr(col_arr, size);
+	if (count_visible(col_arr, size) != bottom)
+		return (0);
+	free(col_arr);
+	return (1);
 }
