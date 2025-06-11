@@ -49,7 +49,7 @@ void	presolve(int **input, int **grid, int size)
 	}
 }
 
-void	solve(int **input, int **grid, int size, int start)
+int	solve(int **input, int **grid, int size, int start)
 {
 	int	row;
 	int	col;
@@ -65,16 +65,19 @@ void	solve(int **input, int **grid, int size, int start)
 			while (!check_row(grid[row], size, value, col) 
 				|| !check_col(grid, size, value, row, col))
 			{
-				printf("row = %d, col = %d, value = %d \n", row, col, value);
 				value++;
 			}
 			grid[row][col] = value;
-			if (start % size == 0)
+			printf("row = %d, col = %d, value = %d \n", row, col, value);
+			if (start > 0 && (start + 1) % size == 0)
 			{
-				return ;
+				printf("modulo == 0 \n");
+				return (1);
 			}
-			solve(input, grid, size, start + 1);
+			if (solve(input, grid, size, start + 1))
+				return (1);
 		}
 		start++;
 	}
+	return (0);
 }

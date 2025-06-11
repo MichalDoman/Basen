@@ -5,7 +5,7 @@ int	validate_input(char *input);
 int	**parse_input(char *input, int size);
 int	**create_grid(int size);
 void	presolve(int **input, int **grid, int size);
-void	solve(int **input, int **grid, int size, int start);
+int	solve(int **input, int **grid, int size, int start);
 void	put_2d_array(int **arr, int size);
 void	free_2d_array(int **arr, int size);
 
