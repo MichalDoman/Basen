@@ -55,18 +55,21 @@ void	solve(int **input, int **grid, int size, int start)
 	int	col;
 	int	value;
 	
-	value = 0;
+	value = 1;
 	while (start < size * size)
 	{
 		row = start / size;
 		col = start % size;
+		printf("row = %d, col = %d \n", row, col);
 		if (grid[row][col] == 0)
 		{
-			
-		}
-		if (is_solved)
-		{
-			return ;
+			grid[row][col] = value;
+			if (check_row(grid[row], size, value, col) 
+				&& check_col(grid, size, value, row, col))
+			{
+				printf("I am here");
+				return ;
+			}
 		}
 		start++;
 	}

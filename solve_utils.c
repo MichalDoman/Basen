@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int	check_row(int *row, int size, int value, int col_id)
 {
 	int	i;
@@ -6,7 +8,10 @@ int	check_row(int *row, int size, int value, int col_id)
 	while (i < size)
 	{
 		if (i == col_id)
+		{
+			i++;
 			continue ;
+		}	
 		if (row[i] == value)
 			return (0);
 		i++;
@@ -22,7 +27,10 @@ int	check_col(int **grid, int size, int value, int row_id, int col_id)
 	while (i < size)
 	{
 		if (i == row_id)
+		{
+			i++;
 			continue ;
+		}
 		if (grid[i][col_id] == value)
 			return (0);
 		i++;

@@ -5,7 +5,7 @@ int	validate_input(char *input);
 int	**parse_input(char *input, int size);
 int	**create_grid(int size);
 void	presolve(int **input, int **grid, int size);
-void	solve(int **input, int **grid, int size);
+void	solve(int **input, int **grid, int size, int start);
 void	put_2d_array(int **arr, int size);
 void	free_2d_array(int **arr, int size);
 
@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 		
 		// solve & display:
 		presolve(parsed_input, grid, grid_size);
-		solve(parsed_input, grid, grid_size);
+		solve(parsed_input, grid, grid_size, 0);
 		put_2d_array(grid, grid_size);
 			
 		// free malloc'ed arrays:
