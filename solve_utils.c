@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 void	rev_arr(int *arr, int size);
 
@@ -85,6 +86,7 @@ int	is_col_correct(int **input, int **grid, int size, int col_id)
 	int	*col_arr;
 	int	i;
 	
+	printf("I am here \n");
 	top = input[0][col_id];
 	bottom = input[1][col_id];
 	col_arr = malloc(size * sizeof(int));
