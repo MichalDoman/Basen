@@ -62,25 +62,33 @@ int	solve(int **input, int **grid, int size, int start)
 		col = start % size;
 		if (grid[row][col] == 0)
 		{
-			while (!check_row(grid[row], size, value, col) 
-				|| !check_col(grid, size, value, row, col))
+			while (value <= size)
 			{
+				printf("row = %d, col = %d, value = %d \n", row, col, value);
+				if (check_row(grid[row], size, value, col) 
+					&& check_col(grid, size, value, row, col))
+				{
+					grid[row][col] = value;
+					
+					if (start > 0 && (start + 1) % size == 0)
+					{
+						if (!is_row_correct(input, grid, size, row))
+						{
+							printf("Row is not correct \n");
+							grid[row][col] = 0;
+							return (0);
+						}
+					}
+					if (solve(input, grid, size, start + 1))
+						return (1);
+				}
 				value++;
 			}
-			grid[row][col] = value;
-			printf("row = %d, col = %d, value = %d \n", row, col, value);
-			if (start > 0 && (start + 1) % size == 0)
+			if (value <= size)
 			{
-				if (!is_row_correct(input, grid, size, row))
-				{
-					printf("I am here \n");
-					grid[row][col] = 0;
-					return (1);
-				}
-					
+				grid[row][col] = 0;
+				return (0);
 			}
-			if (solve(input, grid, size, start + 1))
-				return (1);
 		}
 		start++;
 	}
