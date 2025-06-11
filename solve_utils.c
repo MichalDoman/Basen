@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void	rev_arr(int *arr, int size);
+
 int	check_row(int *row, int size, int value, int col_id)
 {
 	int	i;
@@ -59,3 +61,19 @@ int	count_visible(int *arr, int size)
 	return (count);
 }
 
+int	is_row_correct(int **input, int **grid, int size, int row_id)
+{
+	int	left;
+	int	right;
+	
+	left = input[2][row_id];
+	right = input[3][row_id];
+	if (count_visible(grid[row_id], size) != left)
+		return (0);
+	rev_arr(grid[row_id], size);
+	if (count_visible(grid[row_id], size) != right)
+		return (0);
+	rev_arr(grid[row_id], size);
+	return (1);
+	
+}

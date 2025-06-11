@@ -2,7 +2,7 @@
 
 int	check_row(int *row, int size, int value, int col_id);
 int	check_col(int **grid, int size, int value, int row_id, int col_id);
-int	count_visible(int *arr, int size);
+int	is_row_correct(int **input, int **grid, int size, int row_id);
 
 void	presolve(int **input, int **grid, int size)
 {
@@ -71,8 +71,13 @@ int	solve(int **input, int **grid, int size, int start)
 			printf("row = %d, col = %d, value = %d \n", row, col, value);
 			if (start > 0 && (start + 1) % size == 0)
 			{
-				printf("modulo == 0 \n");
-				return (1);
+				if (!is_row_correct(input, grid, size, row))
+				{
+					printf("I am here \n");
+					grid[row][col] = 0;
+					return (1);
+				}
+					
 			}
 			if (solve(input, grid, size, start + 1))
 				return (1);
