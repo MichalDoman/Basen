@@ -15,7 +15,8 @@ int	main(int argc, char *argv[])
 	int	**parsed_input;
 	int	**grid;
 	
-	if (argc == 2 && validate_input(argv[1]))
+	if (argc == 2 && validate_input(argv[1]) >= 1 
+		&& validate_input(argv[1]) <= 9)
 	{
 		//get neccessary data:
 		grid_size = validate_input(argv[1]);
