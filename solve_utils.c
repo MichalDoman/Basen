@@ -70,10 +70,15 @@ int	is_row_correct(int **input, int **grid, int size, int row_id)
 	left = input[2][row_id];
 	right = input[3][row_id];
 	if (count_visible(grid[row_id], size) != left)
+	{
 		return (0);
+	}
 	rev_arr(grid[row_id], size);
 	if (count_visible(grid[row_id], size) != right)
+	{
+		rev_arr(grid[row_id], size);
 		return (0);
+	}
 	rev_arr(grid[row_id], size);
 	return (1);
 	
@@ -86,7 +91,6 @@ int	is_col_correct(int **input, int **grid, int size, int col_id)
 	int	*col_arr;
 	int	i;
 	
-	printf("I am here \n");
 	top = input[0][col_id];
 	bottom = input[1][col_id];
 	col_arr = malloc(size * sizeof(int));
@@ -97,10 +101,16 @@ int	is_col_correct(int **input, int **grid, int size, int col_id)
 		i++;
 	}
 	if (count_visible(col_arr, size) != top)
+	{
+		free(col_arr);
 		return (0);
+	}
 	rev_arr(col_arr, size);
 	if (count_visible(col_arr, size) != bottom)
+	{
+		free(col_arr);
 		return (0);
+	}
 	free(col_arr);
 	return (1);
 }
