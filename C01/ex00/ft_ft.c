@@ -4,10 +4,11 @@ void	ft_ft(int *nbr)
 }
 
 #include <stdio.h>
+
 int	main(void)
 {
 	int	nbr;
-		
+
 	nbr = 0;
 	ft_ft(&nbr);
 	printf("nbr = %d", nbr);
