@@ -4,7 +4,6 @@ void	ft_print_comb2(void)
 {
 	int		n1;
 	int		n2;
-	char	c;
 
 	n1 = 0;
 	while (n1 < 99)
