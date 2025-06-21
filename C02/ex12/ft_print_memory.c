@@ -8,36 +8,51 @@ void	print_address(unsigned long addr, int count)
 	if (count < 16)
 		print_address(addr / 16, count + 1);
 	write(1, &hex[addr % 16], 1);
+	if (count == 1)
+		write(1, ": ", 2);
 }
 
-void	convert_addr_to_hex(unsigned long addr)
+void	print_hexes(unsigned char *str, int	start, int size)
 {
-	int		i;
+	int	i;
 	char	*hex;
-	char	hex_addr[16];
-
+	
 	hex = "0123456789abcdef";
-	i = 15;
-	while (i >= 0)
+	i = 0;
+	while (i < 16)
 	{
-		hex_addr[i] = hex[addr % 16];
-		addr = addr / 16;
-		i--;
+		if (i < size)
+		{
+			write(1, &hex[str[i + start] / 16], 1);
+			write(1, &hex[str[i + start] % 16], 1);
+		}
+		else
+			write(1, "  ", 2);
+		if (i != 0 && (i + 1) % 2 == 0)
+			write(1, " ", 1);
+		i++;
 	}
-	write(1, &hex_addr, 16);
-	write(1, ": ", 2);
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	i;
+	unsigned int	size_left;
+	unsigned int	length;
 
 	i = 0;
-	convert_addr_to_hex((unsigned long)addr);
-	write(1, "\n", 1);
-	write(1, "\n", 1);
-	print_address((unsigned long)addr, 1);
-	write(1, ": ", 1);
+	size_left = size;
+	length = 16;
+	while (i <= size)
+	{
+		if (size_left < 16)
+			length = size_left;
+		print_address((unsigned long)(addr + i), 1);
+		print_hexes((unsigned char *)addr, i, length);
+		write(1, "\n", 1);
+		i += 16;
+		size_left -= length;
+	}
 	return (addr);
 }
 
