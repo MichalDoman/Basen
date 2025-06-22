@@ -3,7 +3,7 @@
 void	print_address(unsigned long addr, int depth)
 {
 	char	*hex;
-	
+
 	hex = "0123456789abcdef";
 	if (depth < 16)
 		print_address(addr / 16, depth + 1);
@@ -14,9 +14,9 @@ void	print_address(unsigned long addr, int depth)
 
 void	print_hexes(unsigned char *str, int line_len)
 {
-	int	i;
+	int		i;
 	char	*hex;
-	
+
 	hex = "0123456789abcdef";
 	i = 0;
 	while (i < 16)
@@ -34,7 +34,7 @@ void	print_hexes(unsigned char *str, int line_len)
 void	print_text(unsigned char *str, int line_len)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < line_len)
 	{
@@ -68,9 +68,9 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 int	main(void)
 {
-	char *str;
+	char			*str;
 	unsigned int	size;
-	
+
 	str = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
 	size = 92;
 	ft_print_memory(str, size);
