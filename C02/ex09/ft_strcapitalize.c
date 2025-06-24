@@ -3,9 +3,9 @@ char	*ft_strcapitalize(char *str)
 	int	i;
 	int	is_new_word;
 
-	i = 0;
+	i = -1;
 	is_new_word = 1;
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 32;
@@ -17,17 +17,18 @@ char	*ft_strcapitalize(char *str)
 		}
 		else
 			is_new_word = 1;
-		i++;
 	}
 	return (str);
 }
 
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	str_1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char	str_1[100];
 
+	strcpy(str_1, "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un");
 	printf("%s \n", ft_strcapitalize(str_1));
 	return (0);
 }
