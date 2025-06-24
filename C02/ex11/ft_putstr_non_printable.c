@@ -6,8 +6,8 @@ void	ft_putstr_non_printable(char *str)
 	char	*hex;
 	
 	hex = "0123456789abcdef";
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
 		if (str[i] < ' ' || str[i] > '~')
 		{
@@ -17,14 +17,16 @@ void	ft_putstr_non_printable(char *str)
 		}
 		else
 			write(1, &str[i], 1);
-		i++;
 	}
 }
 
+#include <string.h>
+
 int	main(void)
 {
-	char	str[] = "Coucou\n\4\v\f\x0f\xff";
+	char	str[30]; 
 	
+	strcpy(str, "Coucou\n\4\v\f\x0f\xff");
 	ft_putstr_non_printable(str);
 	return (0);
 }
