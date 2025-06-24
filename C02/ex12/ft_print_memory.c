@@ -18,8 +18,8 @@ void	print_hexes(unsigned char *str, int line_len)
 	char	*hex;
 
 	hex = "0123456789abcdef";
-	i = 0;
-	while (i < 16)
+	i = -1;
+	while (++i < 16)
 	{
 		if (i < line_len)
 			write(1, (char []){hex[str[i] / 16], hex[str[i] % 16]}, 2);
@@ -27,7 +27,6 @@ void	print_hexes(unsigned char *str, int line_len)
 			write(1, "  ", 2);
 		if (i != 0 && (i + 1) % 2 == 0)
 			write(1, " ", 1);
-		i++;
 	}
 }
 
@@ -35,14 +34,13 @@ void	print_text(unsigned char *str, int line_len)
 {
 	int	i;
 
-	i = 0;
-	while (i < line_len)
+	i = -1;
+	while (++i < line_len)
 	{
 		if (str[i] >= ' ' && str[i] <= '~')
 			write(1, &str[i], 1);
 		else
 			write(1, ".", 1);
-		i++;
 	}
 }
 
