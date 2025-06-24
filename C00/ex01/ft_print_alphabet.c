@@ -5,7 +5,7 @@ void	ft_print_alphabet(void)
 	char	c;
 
 	c = '`';
-	while (c++ < 'z')
+	while (++c <= 'z')
 		write(1, &c, 1);
 }
 
