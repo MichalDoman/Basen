@@ -13,8 +13,8 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(void)
 {
-	char *s1;
-	char *s2;
+	char	*s1;
+	char	*s2;
 
 	s1 = "This is ";
 	s2 = "This is";
