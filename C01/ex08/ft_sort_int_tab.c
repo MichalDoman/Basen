@@ -4,11 +4,11 @@ void	ft_sort_int_tab(int *tab, int size)
 	int	j;
 	int	temp;
 
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
-		j = i + 1;
-		while (j < size)
+		j = i;
+		while (++j < size)
 		{
 			temp = tab[i];
 			if (temp > tab[j])
@@ -16,12 +16,10 @@ void	ft_sort_int_tab(int *tab, int size)
 				tab[i] = tab[j];
 				tab[j] = temp;
 			}
-			j++;
 		}
-		i++;
 	}
 }
-
+// {int i=-1,j,tmp;while(++i<s){j=i;while(++j<s)if(t[i]>t[j]){tmp=t[i];t[i]=t[j];t[j]=tmp;}}}
 #include <stdio.h>
 
 int	main(void)
