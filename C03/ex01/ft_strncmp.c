@@ -1,9 +1,9 @@
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	i;
-	
+
 	i = 0;
-	while ( i < n && s1[i] && s1[i] == s2[i])
+	while (i < n && s1[i] && s1[i] == s2[i])
 		i++;
 	if (n == 0 || n == i)
 		return (0);
@@ -15,10 +15,10 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 
 int	main(void)
 {
-	char *s1;
-	char *s2;
-	unsigned int n;
-	
+	char			*s1;
+	char			*s2;
+	unsigned int	n;
+
 	s1 = "abc";
 	s2 = "abcXYZ";
 	n = 3;
