@@ -4,10 +4,8 @@ int	ft_str_is_printable(char *str)
 
 	i = -1;
 	while (str[++i])
-	{
 		if (str[i] < ' ' || str[i] > '~')
 			return (0);
-	}
 	return (1);
 }
 
