@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <limits.h>
 
 int	is_base_valid(char *base)
 {
@@ -50,8 +49,8 @@ int	main(void)
 	int		nbr;
 	char	*base;
 
-	nbr = 70;
-	base = "0123456789abcdef";
+	nbr = 8;
+	base = "01234567";
 	ft_putnbr_base(nbr, base);
 	write(1, "\n", 1);
 	return (0);
