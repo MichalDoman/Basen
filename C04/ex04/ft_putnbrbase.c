@@ -47,11 +47,15 @@ void	ft_putnbr_base(int nbr, char *base)
 int	main(void)
 {
 	int		nbr;
+	int		nbr_2;
+	int		nbr_3;
 	char	*base;
 
-	nbr = 8;
-	base = "01234567";
-	ft_putnbr_base(nbr, base);
+	nbr = 215739439;
+	nbr_2 = 8123710;
+	nbr_3 = 66638;
+	base = "abcdefghijklmnopqrstuvwxyz";
+	ft_putnbr_base(nbr_3, base);
 	write(1, "\n", 1);
 	return (0);
 }
