@@ -39,7 +39,8 @@ int	ft_atoi_base(char *str, char *base)
 	int	result;
 	int	base_len;
 
-	if (!is_base_valid)
+	base_len = is_base_valid(base);
+	if (!base_len)
 		return (0);
 	i = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
@@ -48,9 +49,6 @@ int	ft_atoi_base(char *str, char *base)
 	while (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign *= -1;
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
 	result = 0;
 	while (is_in_base(str[i], base) >= 0)
 	{
