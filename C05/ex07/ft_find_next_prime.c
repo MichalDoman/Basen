@@ -1,16 +1,14 @@
 int	ft_find_next_prime(int nb)
 {
 	int	i;
-	int	is_prime;
 
-	is_prime = (nb >= 2);
+	if (nb < 2)
+		return (ft_find_next_prime(2));
 	i = 2;
-	while (nb >= 2 && i * i <= nb)
+	while (i * i <= nb)
 		if (nb % i++ == 0)
-			is_prime = 0;
-	if (is_prime)
-		return (nb);
-	return (ft_find_next_prime(nb + 1));
+			return (ft_find_next_prime(nb + 1));
+	return (nb);
 }
 
 #include <stdio.h>
